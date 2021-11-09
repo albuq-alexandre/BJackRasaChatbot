@@ -1,0 +1,107 @@
+version: "2.0"
+
+intents:
+  - creditos
+  - iniciar
+  - estatisticas
+  - finalizacao
+  - listar
+  - menu
+  - parar
+  - pegar_carta
+  - papofurado
+
+entities:
+  - cidade
+  - time
+
+responses:
+  utter_papofurado/cumprimento:
+    - text: "Olá"
+    - text: "Oi"
+    - text: "Bom dia"
+
+  utter_papofurado/finalizacao:
+    - text: "Até breve"
+    - text: "Até a próxima"
+    - text: "Tchau!"
+
+  utter_papofurado/funcionalidades:
+    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
+Olha só o que eu posso fazer:
+
+<i><b>    - Iniciar:</b> Inicia o  Jogo <b><u>BlackJack!</u></b>;
+<b>        - Mais uma: </b> durante o jogo, para receber uma carta;
+<b>        - Parar: </b> para finalizar seu turno.
+<b>    - Listar: </b>Lista suas partidas de BlackJack no jogo atual;
+<b>    - Estatística: </b>Mostra seu percentual de vitórias;
+<b>    - Créditos: </b>Mostra os créditos do projeto;
+<b>    - Encerrar: </b>Quando estiver perdido, diga <b><u>Tchau</u></b> que a gente começa de novo!</i>
+
+Eu entendo linguagem natural e áudio, então você pode me dizer o que você quer fazer de várias formas.
+
+<b>Vamos jogar BlackJack?</b>"
+
+  utter_creditos:
+    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
+
+Uso o telegram, o Rasa Open Source  e o deckofcardsapi.com para funcionar. Fui escrito em Python e estou hospedado no Heroku.
+
+Meu código fonte está no GitHub:
+https://github.com/albuq-alexandre/BJackChatbot
+
+Passe lá e dê uma estrela!
+
+Créditos adicionais para os projetos:
+https://github.com/crobertsbmw/deckofcards
+https://github.com/rafaelbr/MovieBot
+https://github.com/d-Rickyy-b/Python-BlackJackBot
+https://github.com/python-telegram-bot/python-telegram-bot"
+
+  utter_faq/limites:
+    - text: "Seus limites são definidos pela nossa equipe de análise de crédito. Aguarde alguns dias para ver seus limites."
+
+  utter_fallback:
+    - text: "Não entendi sua pergunta, pode reformular?"
+
+  utter_ask_cidade:
+    - text: "Qual a cidade?"
+
+  utter_ask_data:
+    - text: "Quando quer agendar?"
+
+  utter_envio_agendamento:
+    - text: "Ok, realizando agendamento"
+
+  utter_confirma_agendamento:
+    - text: "Agendamento efetuado na cidade de {resultado_cidade} no dia {resultado_data}"
+
+  utter_cancelamento:
+    - text: "Cancelando..."
+
+slots:
+  cidade:
+    type: text
+    influence_conversation: false
+  data:
+    type: text
+    influence_conversation: false
+  resultado_cidade:
+    type: text
+    influence_conversation: false
+  resultado_data:
+    type: text
+    influence_conversation: false
+
+forms:
+  agendamento_form:
+    cidade:
+      - type: from_entity
+        entity: cidade
+    data:
+      - type: from_entity
+        entity: time
+
+actions:
+  - action_clear_slots
+  - action_submit_agendamento
