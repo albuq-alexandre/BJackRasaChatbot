@@ -12,8 +12,7 @@ intents:
   - papofurado
 
 entities:
-  - cidade
-  - time
+  - nome_gamer
 
 responses:
   utter_papofurado/cumprimento:
@@ -58,17 +57,11 @@ https://github.com/rafaelbr/MovieBot
 https://github.com/d-Rickyy-b/Python-BlackJackBot
 https://github.com/python-telegram-bot/python-telegram-bot"
 
-  utter_faq/limites:
-    - text: "Seus limites são definidos pela nossa equipe de análise de crédito. Aguarde alguns dias para ver seus limites."
-
   utter_fallback:
     - text: "Não entendi sua pergunta, pode reformular?"
 
-  utter_ask_cidade:
-    - text: "Qual a cidade?"
-
-  utter_ask_data:
-    - text: "Quando quer agendar?"
+  utter_ask_nome_gamer:
+    - text: "Qual o seu nome?"
 
   utter_envio_agendamento:
     - text: "Ok, realizando agendamento"
@@ -80,28 +73,26 @@ https://github.com/python-telegram-bot/python-telegram-bot"
     - text: "Cancelando..."
 
 slots:
-  cidade:
+  nome_gamer:
     type: text
     influence_conversation: false
-  data:
-    type: text
-    influence_conversation: false
-  resultado_cidade:
-    type: text
-    influence_conversation: false
-  resultado_data:
+  resultado_nome_gamer:
     type: text
     influence_conversation: false
 
+
 forms:
-  agendamento_form:
-    cidade:
+  gamer_form:
+    nome:
       - type: from_entity
-        entity: cidade
-    data:
-      - type: from_entity
-        entity: time
+        entity: nome_gamer
 
 actions:
   - action_clear_slots
   - action_submit_agendamento
+  - iniciar
+  - mais1carta
+  - parar
+  - terminar
+  - listar
+  - estatística
