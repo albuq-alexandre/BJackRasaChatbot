@@ -1,22 +1,76 @@
 version: "2.0"
 
 nlu: 
-  - synonym: Brasília
+  - intent: creditos
     examples: |
-        - Brasília
-        - BSB
-  - synonym: São Paulo
+      - créditos
+      - quem fez vc
+      - quem fez você?
+  - intent: estatisticas
     examples: |
-        - são paulo
-        - sao paulo
-        - São Paulo
-        - SP
-        - Sampa
-  - synonym: Rio de Janeiro
+      - estatistica
+      - estatística
+      - Qual é o meu score
+      - Quanto eu já ganhei
+      - Quero ver as estatísticas
+      - score
+      - stats
+  - intent: finalizacao
     examples: |
-        - Rio de Janeiro
-        - Rio
-        - RJ
+      - 👋
+      - Até a próxima
+      - Até breve
+      - Até logo
+      - cancelar
+      - encerrar
+      - restart
+      - Tchau
+  - intent: iniciar
+    examples: |
+      - bora
+      - Bora jogar
+      - Favor iniciar um novo jogo
+      - Inicie um novo jogo
+      - iniciar
+      - iniciar jogo
+      - Jogar
+      - Quero iniciar um novo jogo
+      - Quero jogar
+      - Sim
+      - Vamos
+  - intent: listar
+    examples: |
+      - list
+      - listar
+      - listar partidas
+      - matches
+      - o que eu joguei
+      - partida
+      - partidas
+  - intent: menu
+    examples: |
+      - menu
+      - minhas alternativas
+      - Opções
+      - O que você faz
+      - O que você pode fazer
+  - intent: parar
+    examples: |
+      - chega
+      - não
+      - para
+      - parar
+      - parei
+  - intent: pegar_carta
+    examples: |
+      - carta
+      - continuar
+      - desce
+      - mais
+      - Mais 1 carta
+      - mais1 carta
+      - mais uma
+      - manda
   - intent: papofurado/cumprimento
     examples: |
         - Bom dia
@@ -31,39 +85,3 @@ nlu:
         - Adeus
         - Até logo
         - Um abraço
-  - intent: papofurado/funcionalidades
-    examples: |
-        - Pra que você serve?
-        - O que você faz?
-        - Como você funciona?    
-  - intent: faq/abrir_conta
-    examples: |
-        - Como abro uma conta?
-        - O que preciso para abrir uma conta?
-        - Quais documentos são necessários para abrir uma conta?
-        - Como faço para abrir uma conta?  
-        - O que fazer para abrir uma conta
-        - Me ajude a abrir uma conta  
-  - intent: faq/limites
-    examples: |
-        - Quais serão meus limites?
-        - Quanto posso sacar?
-        - Qual o limite da conta?
-        - Como ficarão meus limites na minha conta nova
-  - intent: agendamento
-    examples: |
-        - agendar
-        - Quero agendar um horário
-        - Quero agendar na agência
-        - Preciso falar com alguém na agência
-  - intent: informacao
-    examples: |
-        - cidade [Brasília](cidade)
-        - cidade de [São Paulo](cidade)
-        - cidade do [Rio de Janeiro](cidade)
-  - intent: cancelar
-    examples: |
-        - quero cancelar
-        - desejo cancelar
-        - cancelar o formulário
-

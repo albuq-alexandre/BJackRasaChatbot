@@ -2,44 +2,18 @@ version: "2.0"
 
 intents:
   - creditos
-  - iniciar
   - estatisticas
   - finalizacao
+  - iniciar
   - listar
   - menu
   - parar
   - pegar_carta
-  - papofurado
 
 entities:
   - nome_gamer
 
 responses:
-  utter_papofurado/cumprimento:
-    - text: "Olá"
-    - text: "Oi"
-    - text: "Bom dia"
-
-  utter_papofurado/finalizacao:
-    - text: "Até breve"
-    - text: "Até a próxima"
-    - text: "Tchau!"
-
-  utter_papofurado/funcionalidades:
-    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
-Olha só o que eu posso fazer:
-
-<i><b>    - Iniciar:</b> Inicia o  Jogo <b><u>BlackJack!</u></b>;
-<b>        - Mais uma: </b> durante o jogo, para receber uma carta;
-<b>        - Parar: </b> para finalizar seu turno.
-<b>    - Listar: </b>Lista suas partidas de BlackJack no jogo atual;
-<b>    - Estatística: </b>Mostra seu percentual de vitórias;
-<b>    - Créditos: </b>Mostra os créditos do projeto;
-<b>    - Encerrar: </b>Quando estiver perdido, diga <b><u>Tchau</u></b> que a gente começa de novo!</i>
-
-Eu entendo linguagem natural e áudio, então você pode me dizer o que você quer fazer de várias formas.
-
-<b>Vamos jogar BlackJack?</b>"
 
   utter_creditos:
     - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
@@ -57,20 +31,47 @@ https://github.com/rafaelbr/MovieBot
 https://github.com/d-Rickyy-b/Python-BlackJackBot
 https://github.com/python-telegram-bot/python-telegram-bot"
 
+  utter_estatisticas:
+    - text: resultado_estatisticas
+
+  utter_finalizacao:
+    - text: "Até breve"
+    - text: "Até a próxima"
+    - text: "Tchau!"
+
+  utter_iniciar:
+    - text: "Bora jogar BlackJack?"
+
+  utter_listar:
+    - text: resultado_listar
+
+  utter_menu:
+    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
+Olha só o que eu posso fazer:
+
+<i><b>    - Iniciar:</b> Inicia o  Jogo <b><u>BlackJack!</u></b>;
+<b>        - Mais uma: </b> durante o jogo, para receber uma carta;
+<b>        - Parar: </b> para finalizar seu turno.
+<b>    - Listar: </b>Lista suas partidas de BlackJack no jogo atual;
+<b>    - Estatística: </b>Mostra seu percentual de vitórias;
+<b>    - Créditos: </b>Mostra os créditos do projeto;
+<b>    - Encerrar: </b>Quando estiver perdido, diga <b><u>Tchau</u></b> que a gente começa de novo!</i>
+
+Eu entendo linguagem natural e áudio, então você pode me dizer o que você quer fazer de várias formas.
+
+<b>Vamos jogar BlackJack?</b>"
+
+  utter_parar:
+    - text: ???
+
+  utter_pegar_carta:
+    - text: ???
+
   utter_fallback:
     - text: "Não entendi sua pergunta, pode reformular?"
 
   utter_ask_nome_gamer:
     - text: "Qual o seu nome?"
-
-  utter_envio_agendamento:
-    - text: "Ok, realizando agendamento"
-
-  utter_confirma_agendamento:
-    - text: "Agendamento efetuado na cidade de {resultado_cidade} no dia {resultado_data}"
-
-  utter_cancelamento:
-    - text: "Cancelando..."
 
 slots:
   nome_gamer:
@@ -80,7 +81,6 @@ slots:
     type: text
     influence_conversation: false
 
-
 forms:
   gamer_form:
     nome:
@@ -89,10 +89,11 @@ forms:
 
 actions:
   - action_clear_slots
-  - action_submit_agendamento
-  - iniciar
-  - mais1carta
-  - parar
-  - terminar
-  - listar
-  - estatística
+  - action_creditos
+  - action_estatisticas
+  - action_finalizacao
+  - action_iniciar
+  - action_listar
+  - action_menu
+  - action_parar
+  - action_pegar_carta
