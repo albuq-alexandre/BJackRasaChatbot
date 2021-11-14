@@ -26,36 +26,34 @@ responses:
     - text: "Tchau!"
 
   utter_papofurado/funcionalidades:
-    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
-Olha só o que eu posso fazer:
-
-<i><b>    - Iniciar:</b> Inicia o  Jogo <b><u>BlackJack!</u></b>;
-<b>        - Mais uma: </b> durante o jogo, para receber uma carta;
-<b>        - Parar: </b> para finalizar seu turno.
-<b>    - Listar: </b>Lista suas partidas de BlackJack no jogo atual;
-<b>    - Estatística: </b>Mostra seu percentual de vitórias;
-<b>    - Créditos: </b>Mostra os créditos do projeto;
-<b>    - Encerrar: </b>Quando estiver perdido, diga <b><u>Tchau</u></b> que a gente começa de novo!</i>
-
-Eu entendo linguagem natural e áudio, então você pode me dizer o que você quer fazer de várias formas.
-
+    - custom:
+        text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
+Olha só o que eu posso fazer:\n\n
+<i><b>    - Iniciar:</b> Inicia o  Jogo <b><u>BlackJack!</u></b> (Pode teclar \"Bora\" pra Iniciar 😜);\n
+<b>        - Mais uma: </b> durante o jogo, para receber uma carta;\n
+<b>        - Parar: </b> para finalizar seu turno.\n\n
+<b>    - Listar: </b>Lista suas partidas de BlackJack no jogo atual;\n
+<b>    - Estatística: </b>Mostra seu percentual de vitórias;\n
+<b>    - Créditos: </b>Mostra os créditos do projeto;\n
+<b>    - Encerrar: </b>Quando estiver perdido, diga <b><u>Tchau</u></b> que a gente começa de novo!</i>\n
+Eu entendo linguagem natural e áudio, então você pode me dizer o que você quer fazer de várias formas.\n\n
 <b>Vamos jogar BlackJack?</b>"
+        parse_mode: "html"
 
   utter_creditos:
-    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
-
-Uso o telegram, o Rasa Open Source  e o deckofcardsapi.com para funcionar. Fui escrito em Python e estou hospedado no Heroku.
-
-Meu código fonte está no GitHub:
-https://github.com/albuq-alexandre/BJackChatbot
-
-Passe lá e dê uma estrela!
-
-Créditos adicionais para os projetos:
-https://github.com/crobertsbmw/deckofcards
-https://github.com/rafaelbr/MovieBot
-https://github.com/d-Rickyy-b/Python-BlackJackBot
+    - custom:
+        text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.\n \n
+Uso o telegram, o Rasa Open Source  e o deckofcardsapi.com para funcionar.\n
+Fui escrito em Python e estou rodando localmente.\n
+Meu código fonte está no GitHub:\n\n
+https://github.com/albuq-alexandre/BJackRasaChatbot\n \n
+Passe lá e dê uma estrela!\n \n
+Créditos adicionais para os projetos:\n
+https://github.com/crobertsbmw/deckofcards\n
+https://github.com/rafaelbr/MovieBot\n
+https://github.com/d-Rickyy-b/Python-BlackJackBot\n
 https://github.com/python-telegram-bot/python-telegram-bot"
+        parse_mode: "markdown"
 
   utter_fallback:
     - text: "Não entendi sua pergunta, pode reformular?"
@@ -66,8 +64,9 @@ https://github.com/python-telegram-bot/python-telegram-bot"
   utter_envio_agendamento:
     - text: "Ok, realizando agendamento"
 
-  utter_confirma_agendamento:
-    - text: "Agendamento efetuado na cidade de {resultado_cidade} no dia {resultado_data}"
+  utter_iniciar:
+    - text: "Mais uma carta ou Parar?"
+
 
   utter_cancelamento:
     - text: "Cancelando..."
@@ -79,20 +78,29 @@ slots:
   resultado_nome_gamer:
     type: text
     influence_conversation: false
+  game:
+    type: any
+    influence_conversation: false
+  retorno_img:
+    type: any
+    influence_conversation: false
+  retorno_txt:
+    type: text
+    influence_conversation: false
 
 
 forms:
   gamer_form:
-    nome:
-      - type: from_entity
+    nome_gamer:
+      - type: from_text
         entity: nome_gamer
 
 actions:
   - action_clear_slots
   - action_submit_agendamento
-  - iniciar
-  - mais1carta
-  - parar
-  - terminar
-  - listar
-  - estatística
+  - action_iniciar
+  - action_mais1carta
+  - action_parar
+  - action_terminar
+  - action_listar
+  - action_estatística

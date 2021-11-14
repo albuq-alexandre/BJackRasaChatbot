@@ -1,10 +1,6 @@
 version: "2.0"
 
 rules:
-  - rule: responde perguntas
-    steps:
-      - intent: faq
-      - action: utter_faq
   - rule: conversa fiada
     steps:
       - intent: papofurado
@@ -13,26 +9,28 @@ rules:
     steps:
       - intent: nlu_fallback
       - action: utter_fallback
-  - rule: ativa formulario agendamento
+  - rule: cria_game
     steps:
-      - intent: agendamento
-      - action: agendamento_form
-      - active_loop: agendamento_form
-  - rule: envia formulario
+      - intent: iniciar
+      - action: gamer_form
+      - active_loop: gamer_form
+  - rule: inicia game
     condition:
-      - active_loop: agendamento_form
+      - active_loop: gamer_form
     steps:
-      - action: agendamento_form
+      - action: gamer_form
       - active_loop: null
-      - action: utter_envio_agendamento
-      - action: action_submit_agendamento
-      - action: utter_confirma_agendamento
-  - rule: cancela formulario
-    condition:
-      - active_loop: agendamento_form
-    steps:
-      - intent: cancelar
-      - action: utter_cancelamento
-      - action: action_clear_slots
+      - action: action_iniciar
       - action: action_deactivate_loop
-      - active_loop: null
+  - rule: mais1carta
+    steps:
+      - intent: pegar_carta
+      - action: action_mais1carta
+
+  - rule: creditos
+    steps:
+      - intent: creditos
+      - action: utter_creditos
+
+
+
