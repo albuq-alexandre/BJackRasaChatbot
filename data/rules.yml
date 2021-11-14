@@ -5,6 +5,11 @@ rules:
     steps:
       - intent: papofurado
       - action: utter_papofurado
+  - rule: menu
+    steps:
+      - intent: menu
+      - action: utter_papofurado/funcionalidades
+
   - rule: fallback
     steps:
       - intent: nlu_fallback
@@ -26,11 +31,24 @@ rules:
     steps:
       - intent: pegar_carta
       - action: action_mais1carta
-
   - rule: creditos
     steps:
       - intent: creditos
       - action: utter_creditos
-
-
-
+  - rule: estatisticas
+    steps:
+      - intent: estatisticas
+      - action: action_estatistica
+  - rule: parar
+    steps:
+      - intent: parar
+      - action: action_parar
+  - rule: finalizacao
+    steps:
+      - intent: finalizacao
+      - action: action_terminar
+      - action: action_clear_slots
+  - rule: listar
+    steps:
+      - intent: listar
+      - action: action_listar

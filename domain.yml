@@ -2,9 +2,9 @@ version: "2.0"
 
 intents:
   - creditos
-  - iniciar
   - estatisticas
   - finalizacao
+  - iniciar
   - listar
   - menu
   - parar
@@ -15,15 +15,6 @@ entities:
   - nome_gamer
 
 responses:
-  utter_papofurado/cumprimento:
-    - text: "Olá"
-    - text: "Oi"
-    - text: "Bom dia"
-
-  utter_papofurado/finalizacao:
-    - text: "Até breve"
-    - text: "Até a próxima"
-    - text: "Tchau!"
 
   utter_papofurado/funcionalidades:
     - custom:
@@ -55,21 +46,43 @@ https://github.com/d-Rickyy-b/Python-BlackJackBot\n
 https://github.com/python-telegram-bot/python-telegram-bot"
         parse_mode: "markdown"
 
+  utter_papofurado/cumprimento:
+    - text: "Olá"
+    - text: "Oi"
+    - text: "Bom dia"
+
+  utter_papofurado/adeus:
+    - text: "Até breve"
+    - text: "Até a próxima"
+    - text: "Tchau!"
+
+  utter_listar:
+    - text: resultado_listar
+
+  utter_menu:
+    - text: "Eu sou um Chatbot feito pelo Grupo do Alexandre, Celso e Juliano.
+Olha só o que eu posso fazer:
+
+<i><b>    - Iniciar:</b> Inicia o  Jogo <b><u>BlackJack!</u></b>;
+<b>        - Mais uma: </b> durante o jogo, para receber uma carta;
+<b>        - Parar: </b> para finalizar seu turno.
+<b>    - Listar: </b>Lista suas partidas de BlackJack no jogo atual;
+<b>    - Estatística: </b>Mostra seu percentual de vitórias;
+<b>    - Créditos: </b>Mostra os créditos do projeto;
+<b>    - Encerrar: </b>Quando estiver perdido, diga <b><u>Tchau</u></b> que a gente começa de novo!</i>
+
+Eu entendo linguagem natural e áudio, então você pode me dizer o que você quer fazer de várias formas.
+
+<b>Vamos jogar BlackJack?</b>"
+
+  utter_iniciar:
+    - text: "Mais uma carta ou Parar?"
+
   utter_fallback:
     - text: "Não entendi sua pergunta, pode reformular?"
 
   utter_ask_nome_gamer:
     - text: "Qual o seu nome?"
-
-  utter_envio_agendamento:
-    - text: "Ok, realizando agendamento"
-
-  utter_iniciar:
-    - text: "Mais uma carta ou Parar?"
-
-
-  utter_cancelamento:
-    - text: "Cancelando..."
 
 slots:
   nome_gamer:
@@ -88,7 +101,6 @@ slots:
     type: text
     influence_conversation: false
 
-
 forms:
   gamer_form:
     nome_gamer:
@@ -103,4 +115,4 @@ actions:
   - action_parar
   - action_terminar
   - action_listar
-  - action_estatística
+  - action_estatistica

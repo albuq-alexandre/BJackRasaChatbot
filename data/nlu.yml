@@ -1,31 +1,80 @@
 version: "2.0"
 
-nlu: 
-  - intent: papofurado/cumprimento
+nlu:
+  - intent: creditos
     examples: |
-        - Bom dia
-        - Boa tarde
-        - Boa noite
-        - Olá
-        - Oi
-        - Tudo bem?    
-  - intent: papofurado/adeus
+      - créditos
+      - quem fez vc
+      - quem fez você?
+  - intent: estatisticas
     examples: |
-        - Tchau
-        - Adeus
-        - Até logo
-        - Um abraço
-  - intent: papofurado/funcionalidades
+      - estatistica
+      - estatística
+      - Qual é o meu score
+      - Quanto eu já ganhei
+      - Quero ver as estatísticas
+      - score
+      - stats
+  - intent: finalizacao
     examples: |
-        - Pra que você serve?
-        - O que você faz?
-        - Como você funciona?    
-  - intent: agendamento
+      - 👋
+      - Até a próxima
+      - Até breve
+      - Até logo
+      - encerrar
+      - restart
+      - Tchau
+  - intent: iniciar
     examples: |
-        - agendar
-        - Quero agendar um horário
-        - Quero agendar na agência
-        - Preciso falar com alguém na agência
+      - bora
+      - Bora jogar
+      - Favor iniciar um novo jogo
+      - Inicie um novo jogo
+      - iniciar
+      - iniciar jogo
+      - Jogar
+      - Quero iniciar um novo jogo
+      - Quero jogar
+      - Sim
+      - Vamos
+  - intent: listar
+    examples: |
+      - list
+      - listar
+      - listar partidas
+      - matches
+      - o que eu joguei
+      - partida
+      - partidas
+  - intent: menu
+    examples: |
+      - menu
+      - minhas alternativas
+      - Opções
+      - O que você faz
+      - O que você pode fazer
+  - intent: parar
+    examples: |
+      - chega
+      - não
+      - para
+      - parar
+      - parei
+  - intent: pegar_carta
+    examples: |
+      - carta
+      - continuar
+      - desce
+      - mais
+      - Mais 1 carta
+      - mais1 carta
+      - mais uma
+      - manda
+      - +1
+      - +1 carta
+      - +1carta
+      - +1c
+
   - intent: cancelar
     examples: |
         - quero cancelar
@@ -37,3 +86,21 @@ nlu:
   - intent: creditos
     examples: |
       - creditos
+  - intent: papofurado/funcionalidades
+    examples: |
+      - Pra que você serve?
+      - O que você faz?
+      - Como você funciona?
+  - intent: papofurado/cumprimento
+    examples: |
+        - Bom dia
+        - Boa tarde
+        - Boa noite
+        - Olá
+        - Oi
+        - Tudo bem?    
+  - intent: papofurado/adeus
+    examples: |
+        - Adeus
+        - Até logo
+        - Um abraço
