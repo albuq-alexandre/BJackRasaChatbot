@@ -143,4 +143,5 @@ dmypy.json
 #apps
 *.exe
 
-
+#credentials
+credentials.yml
