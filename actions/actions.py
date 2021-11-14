@@ -163,10 +163,7 @@ class Terminar(Action):
 				ret = ret + player.stats(audible=False) + '\n'
 			return_values_img = ret
 			game.terminate()
-			dispatcher.utter_message(text="Cartas na Mesa!")
-			dispatcher.utter_message(text=return_values_img)
-			#dispatcher.utter_message(custom=return_values_img, parse_mode='html')
-			#dispatcher.utter_message(json_message={'text': return_values_img, 'parse_mode': 'html'})
+			dispatcher.utter_message(json_message={'text': return_values_img, 'parse_mode': 'html'})
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))
@@ -214,7 +211,7 @@ class Estatistica(Action):
 			game = jsonpickle.decode(gameJson)
 			#lista as partidas do Player
 			return_values_img = game.players[1].stats(audible = False)
-			dispatcher.utter_message(text=return_values_img)
+			dispatcher.utter_message(json_message={'text': return_values_img, 'parse_mode': 'html'})
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))
