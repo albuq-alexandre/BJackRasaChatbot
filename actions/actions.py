@@ -133,6 +133,7 @@ class Parar(Action):
 			txt_values, return_values_img = game.evaluate(audible = False)
 			dispatcher.utter_message(text="Cartas na Mesa!")
 			dispatcher.utter_message(text=return_values_img)
+			dispatcher.utter_message(text=txt_values)
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))
@@ -163,7 +164,8 @@ class Terminar(Action):
 			return_values_img = ret
 			game.terminate()
 			dispatcher.utter_message(text="Cartas na Mesa!")
-			dispatcher.utter_message(text=return_values_img)
+			dispatcher.utter_message(custom=return_values_img, parse_mode='html')
+			dispatcher.utter_custom_json({'text': return_values_img, 'parse_mode': 'html'})
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))

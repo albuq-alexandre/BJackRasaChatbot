@@ -1,6 +1,6 @@
 version: "2.0"
 
-nlu: 
+nlu:
   - intent: creditos
     examples: |
       - créditos
@@ -21,7 +21,6 @@ nlu:
       - Até a próxima
       - Até breve
       - Até logo
-      - cancelar
       - encerrar
       - restart
       - Tchau
@@ -71,6 +70,27 @@ nlu:
       - mais1 carta
       - mais uma
       - manda
+      - +1
+      - +1 carta
+      - +1carta
+      - +1c
+
+  - intent: cancelar
+    examples: |
+        - quero cancelar
+        - desejo cancelar
+        - cancelar o formulário
+  - intent: iniciar
+    examples: |
+        - bora
+  - intent: creditos
+    examples: |
+      - creditos
+  - intent: papofurado/funcionalidades
+    examples: |
+      - Pra que você serve?
+      - O que você faz?
+      - Como você funciona?
   - intent: papofurado/cumprimento
     examples: |
         - Bom dia
@@ -81,7 +101,6 @@ nlu:
         - Tudo bem?    
   - intent: papofurado/adeus
     examples: |
-        - Tchau
         - Adeus
         - Até logo
         - Um abraço
