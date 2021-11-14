@@ -17,10 +17,6 @@ pipeline:
   - name: DIETClassifier
     epochs: 50
   - name: EntitySynonymMapper
-  - name: DucklingEntityExtractor
-    url: "http://localhost:8000"
-    dimensions: ["time"]
-    timezone: "America/Sao_Paulo"
   - name: ResponseSelector
     epochs: 50
     retrieval_intent: faq

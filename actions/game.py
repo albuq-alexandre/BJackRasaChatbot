@@ -58,7 +58,7 @@ class Player:
             card_labels = [self.get_value(card_value=card[0]['value']) for card in self.hand]
             score = str(self.get_game_score())
             if mock and self.name == "Banca":
-                imgs_loader[-1] = Image.open('b0C.png').convert("RGB")
+                imgs_loader[-1] = Image.open('./actions/b0C.png').convert("RGB")
                 card_labels[-1] = '?'
                 score = '?'
             fig = plt.figure(figsize=(count, 1.5))
@@ -246,7 +246,7 @@ class BlackJackGame:
             self.dealers_turn(audible)
             return self.evaluate(audible=audible)
         else:
-            return resp, self.table(mock=True, text=None)
+            return resp, self.table(mock=True, text=None, text_mode=True)
 
     def get_current_player(self):
         return self.players[self._current_player]
@@ -434,7 +434,7 @@ class BlackJackGame:
         if audible:
             return ret + "\nFim da partida. Peça para jogar novamente.", None
         else:
-            return "Fim da partida. Peça para jogar novamente.", self.table(text=ret)
+            return "Fim da partida. Peça para jogar novamente.", self.table(text=ret, text_mode=True)
 
     def terminate (self):
         #return to same state as a new instance of BlackJackGame
@@ -449,34 +449,41 @@ class BlackJackGame:
         self.players.append(Player("Você"))
         self.deck = Deck()
 
-    def table(self, mock = False, text = None):
-        imgs_loader = [player.show_hand(mock=mock) for player in self.players]
-        size = len(imgs_loader) if not text else len(imgs_loader)+1
-        max_hand_count = min(max([len(player.hand) for player in self.players]), 4)
-        if max_hand_count <= 2:
-            dpi = 100
+    def table(self, mock = False, text = None, text_mode = True):
+        if text_mode:
+            ret = ''
+            hands = [player.name + ": " + player.show_hand(mock=mock, text=text_mode) for player in self.players]
+            for hand in hands:
+                ret = ret + hand + "\n"
+            ret = ret + ("" if not text else text)
         else:
-            dpi = 70
+            imgs_loader = [player.show_hand(mock=mock) for player in self.players]
+            size = len(imgs_loader) if not text else len(imgs_loader)+1
+            max_hand_count = min(max([len(player.hand) for player in self.players]), 4)
+            if max_hand_count <= 2:
+                dpi = 100
+            else:
+                dpi = 70
 
-        fig = plt.figure(figsize=(max_hand_count, max_hand_count*size*0.65))
-        for idx in range(len(imgs_loader)):
-            ax = fig.add_subplot(size, 1, idx+1, xticks=[], yticks=[])
-            ax.axis('off')
-            plt.imshow(Image.open(imgs_loader[idx]), aspect='auto')
-        # fig.suptitle('Cartas na Mesa:')
-        if text:
-          props = dict(boxstyle='round', facecolor='green', alpha=0.2)
-          ax = fig.add_subplot(size, 1, size)
-          # place a text box in upper left in axes coords
-          ax.text(0.5, 0.5, text, transform=ax.transAxes, fontsize=14,
-                  verticalalignment='center', horizontalalignment='center', bbox=props)
-          ax.axis('off')
-        plt.tight_layout()
-        buf = io.BytesIO()
-        fig.savefig(buf, format='jpeg', dpi=dpi, quality=50)
-        plt.close()
-        buf.seek(0)
-        ret = base64.b64encode(buf.read()).decode('utf-8')
+            fig = plt.figure(figsize=(max_hand_count, max_hand_count*size*0.65))
+            for idx in range(len(imgs_loader)):
+                ax = fig.add_subplot(size, 1, idx+1, xticks=[], yticks=[])
+                ax.axis('off')
+                plt.imshow(Image.open(imgs_loader[idx]), aspect='auto')
+            # fig.suptitle('Cartas na Mesa:')
+            if text:
+              props = dict(boxstyle='round', facecolor='green', alpha=0.2)
+              ax = fig.add_subplot(size, 1, size)
+              # place a text box in upper left in axes coords
+              ax.text(0.5, 0.5, text, transform=ax.transAxes, fontsize=14,
+                      verticalalignment='center', horizontalalignment='center', bbox=props)
+              ax.axis('off')
+            plt.tight_layout()
+            buf = io.BytesIO()
+            fig.savefig(buf, format='jpeg', dpi=dpi, pil_kwargs={'quality': 50})
+            plt.close()
+            buf.seek(0)
+            ret = base64.b64encode(buf.read()).decode('utf-8')
         return ret
 
 def generate_bar_chart(win_percentage):
