@@ -24,6 +24,8 @@ nlu:
       - encerrar
       - restart
       - Tchau
+      - tchau
+      - terminar
   - intent: iniciar
     examples: |
       - bora
@@ -33,6 +35,7 @@ nlu:
       - iniciar
       - iniciar jogo
       - Jogar
+      - jogar
       - Quero iniciar um novo jogo
       - Quero jogar
       - Sim
@@ -74,15 +77,11 @@ nlu:
       - +1 carta
       - +1carta
       - +1c
-
   - intent: cancelar
     examples: |
         - quero cancelar
         - desejo cancelar
         - cancelar o formulário
-  - intent: iniciar
-    examples: |
-        - bora
   - intent: creditos
     examples: |
       - creditos
