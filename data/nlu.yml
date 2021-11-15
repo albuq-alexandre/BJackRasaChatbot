@@ -27,6 +27,7 @@ nlu:
       - Tchau
       - tchau
       - terminar
+      - finalizar
   - intent: iniciar
     examples: |
       - bora
@@ -94,7 +95,7 @@ nlu:
         - Boa noite
         - Olá
         - Oi
-        - Tudo bem?    
+        - Tudo bem?
   - intent: papofurado/adeus
     examples: |
         - Adeus

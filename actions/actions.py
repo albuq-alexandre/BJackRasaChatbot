@@ -78,7 +78,10 @@ class Iniciar(Action):
 		logger.info(return_values_img)
 
 		dispatcher.utter_message(text="Cartas na Mesa!")
-		dispatcher.utter_message(text=return_values_img + '\n' + txt_values)
+		dispatcher.utter_message(json_message={
+			'text': return_values_img + txt_values,
+			'parse_mode': 'html'
+		})
 
 		return [
 			SlotSet('game', jsonpickle.encode(game)),
@@ -107,7 +110,10 @@ class Pegar_carta(Action):
 			logger.info(return_values_img)
 			logger.info(txt_values)
 			dispatcher.utter_message(text="Cartas na Mesa!")
-			dispatcher.utter_message(text=return_values_img + '\n' + txt_values)
+			dispatcher.utter_message(json_message={
+				'text': return_values_img + '\n' + txt_values,
+				'parse_mode': 'html'
+			})
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))
