@@ -39,7 +39,7 @@ rules:
     steps:
       - intent: estatisticas
       - action: action_estatistica
-  - rule: parar
+  - rule: para o jogo
     steps:
       - intent: parar
       - action: action_parar
@@ -52,3 +52,13 @@ rules:
     steps:
       - intent: listar
       - action: action_listar
+  - rule: cancela formulario
+    condition:
+      - active_loop: gamer_form
+    steps:
+      - intent: cancelar
+      - action: utter_cancelamento
+      - action: action_clear_slots
+      - action: action_deactivate_loop
+      - active_loop: null
+

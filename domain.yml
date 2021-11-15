@@ -9,6 +9,7 @@ intents:
   - menu
   - parar
   - pegar_carta
+  - cancelar
   - papofurado
 
 entities:
@@ -83,6 +84,10 @@ Eu entendo linguagem natural e áudio, então você pode me dizer o que você qu
 
   utter_ask_nome_gamer:
     - text: "Qual o seu nome?"
+
+  utter_cancelamento:
+    - text: "Cancelando jogo..."
+
 
 slots:
   nome_gamer:

@@ -71,14 +71,14 @@ class Iniciar(Action):
 			game = BlackJackGame()
 		else:
 			game = jsonpickle.decode(gameJson)
-		if not nome:
+		if nome:
 			game.players[1].name = nome
 		#executa o início do jogo
 		txt_values, return_values_img = game.start(audible = False)
 		logger.info(return_values_img)
 
 		dispatcher.utter_message(text="Cartas na Mesa!")
-		dispatcher.utter_message(text=return_values_img)
+		dispatcher.utter_message(text=return_values_img + '\n' + txt_values)
 
 		return [
 			SlotSet('game', jsonpickle.encode(game)),
@@ -104,8 +104,10 @@ class Pegar_carta(Action):
 
 			#executa o pegar mais uma carta no jogo
 			txt_values, return_values_img = game.draw_card(audible = False)
+			logger.info(return_values_img)
+			logger.info(txt_values)
 			dispatcher.utter_message(text="Cartas na Mesa!")
-			dispatcher.utter_message(text=return_values_img)
+			dispatcher.utter_message(text=return_values_img + '\n' + txt_values)
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))
@@ -131,6 +133,8 @@ class Parar(Action):
 			if game.running:
 				game.dealers_turn(audible=False)
 			txt_values, return_values_img = game.evaluate(audible = False)
+			logger.info(return_values_img)
+			logger.info(txt_values)
 			dispatcher.utter_message(text="Cartas na Mesa!")
 			dispatcher.utter_message(text=return_values_img)
 			dispatcher.utter_message(text=txt_values)
@@ -163,6 +167,7 @@ class Terminar(Action):
 				ret = ret + player.stats(audible=False) + '\n'
 			return_values_img = ret
 			game.terminate()
+			logger.info(return_values_img)
 			dispatcher.utter_message(json_message={'text': return_values_img, 'parse_mode': 'html'})
 
 		return [
@@ -187,6 +192,7 @@ class Listar(Action):
 
 			#lista as partidas do Player
 			return_values_img = game.players[1].list_matches()
+			logger.info(return_values_img)
 			dispatcher.utter_message(text="Partidas do Jogador - " + game.players[1].name)
 			dispatcher.utter_message(text=return_values_img)
 
@@ -211,6 +217,7 @@ class Estatistica(Action):
 			game = jsonpickle.decode(gameJson)
 			#lista as partidas do Player
 			return_values_img = game.players[1].stats(audible = False)
+			logger.info(return_values_img)
 			dispatcher.utter_message(json_message={'text': return_values_img, 'parse_mode': 'html'})
 
 		return [

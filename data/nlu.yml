@@ -6,6 +6,7 @@ nlu:
       - créditos
       - quem fez vc
       - quem fez você?
+      - eu sou seu pai
   - intent: estatisticas
     examples: |
       - estatistica
@@ -54,14 +55,13 @@ nlu:
       - menu
       - minhas alternativas
       - Opções
-      - O que você faz
       - O que você pode fazer
   - intent: parar
     examples: |
+      - parar
       - chega
       - não
       - para
-      - parar
       - parei
   - intent: pegar_carta
     examples: |
@@ -82,9 +82,6 @@ nlu:
         - quero cancelar
         - desejo cancelar
         - cancelar o formulário
-  - intent: creditos
-    examples: |
-      - creditos
   - intent: papofurado/funcionalidades
     examples: |
       - Pra que você serve?

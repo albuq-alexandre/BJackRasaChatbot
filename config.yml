@@ -4,7 +4,7 @@ language: pt
 
 pipeline:
   - name: SpacyNLP
-    model: pt_core_news_lg
+    model: pt_core_news_md
   - name: SpacyTokenizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
@@ -23,8 +23,31 @@ pipeline:
   - name: ResponseSelector
     epochs: 50
     retrieval_intent: papofurado
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: parar
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: menu
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: finalizacao
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: iniciar
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: creditos
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: pegar_carta
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: estatisticas
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: cancelar
   - name: FallbackClassifier
-    threshold: 0.6
-
+    threshold: 0.4
 policies:
   - name: RulePolicy

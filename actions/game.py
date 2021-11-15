@@ -228,7 +228,7 @@ class BlackJackGame:
         for player in (self.players) * 2:
             player.draw_from_deck(self.deck)
         self._current_player = 1
-        resp = "Cartas na mesa: \n"
+        resp = "\n"
         for player in self.players:
             score = " " + str(player.get_game_score()) if not audible else " está com " + str(player.get_game_score())
             if player.has_blackjack():
