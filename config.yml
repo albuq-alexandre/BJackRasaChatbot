@@ -15,8 +15,7 @@ pipeline:
   - name: SpacyFeaturizer
     pooling: mean
   - name: DIETClassifier
-    epochs: 50
-  - name: EntitySynonymMapper
+    epochs: 150
   - name: ResponseSelector
     epochs: 50
     retrieval_intent: faq
@@ -24,16 +23,16 @@ pipeline:
     epochs: 50
     retrieval_intent: papofurado
   - name: ResponseSelector
-    epochs: 50
+    epochs: 150
     retrieval_intent: parar
   - name: ResponseSelector
-    epochs: 50
+    epochs: 150
     retrieval_intent: menu
   - name: ResponseSelector
     epochs: 50
     retrieval_intent: finalizacao
   - name: ResponseSelector
-    epochs: 50
+    epochs: 100
     retrieval_intent: iniciar
   - name: ResponseSelector
     epochs: 50
@@ -48,6 +47,6 @@ pipeline:
     epochs: 50
     retrieval_intent: cancelar
   - name: FallbackClassifier
-    threshold: 0.4
+    threshold: 0.6
 policies:
   - name: RulePolicy
