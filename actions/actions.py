@@ -175,6 +175,7 @@ class Terminar(Action):
 			game.terminate()
 			logger.info(return_values_img)
 			dispatcher.utter_message(json_message={'text': return_values_img, 'parse_mode': 'html'})
+			dispatcher.utter_message(text="Uma pena que você não quer mais jogar...\n🥺👋\n Te vejo na próxima partida, Até logo! ")
 
 		return [
 			SlotSet('game', jsonpickle.encode(game))
