@@ -1,0 +1,7 @@
+jsonpickle==2.0.0
+matplotlib==3.3.4
+Pillow==8.4.0
+rasa==2.8.13
+rasa_sdk==2.8.2
+requests==2.25.1
+
