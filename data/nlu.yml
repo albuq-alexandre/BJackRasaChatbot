@@ -20,14 +20,14 @@ nlu:
     examples: |
       - 👋
       - Até a próxima
-      - Até breve
-      - Até logo
       - encerrar
       - restart
       - Tchau
       - tchau
       - terminar
       - finalizar
+      - Até mais
+      - até mais
   - intent: iniciar
     examples: |
       - bora
@@ -101,3 +101,5 @@ nlu:
         - Adeus
         - Até logo
         - Um abraço
+        - até logo
+

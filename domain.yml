@@ -48,14 +48,14 @@ https://github.com/python-telegram-bot/python-telegram-bot"
         parse_mode: "markdown"
 
   utter_papofurado/cumprimento:
-    - text: "Olá"
-    - text: "Oi"
-    - text: "Bom dia"
+    - text: "Olá! Eu sou um Chatbot que joga cartas.\nMeu jogo preferido é o \"21\" ou Blackjack.\nBora jogar BlackJack?"
+    - text: "Oi! Eu sou um Chatbot que joga cartas.\nMeu jogo preferido é o \"21\" ou Blackjack.\nBora jogar BlackJack?"
+    - text: "Como vai você? Tudo bem? Eu sou um Chatbot que joga cartas.\nMeu jogo preferido é o \"21\" ou Blackjack.\nBora jogar BlackJack?"
 
   utter_papofurado/adeus:
-    - text: "Até breve"
-    - text: "Até a próxima"
-    - text: "Tchau!"
+    - text: "Uma pena que você não quer mais jogar...\n🥺👋\n Te vejo na próxima partida, Até breve!"
+    - text: "Uma pena que você não quer mais jogar...\n🥺👋\n Até a próxima!"
+    - text: "Tchau! Uma pena que você não quer mais jogar...\n👋👋👋\n Te vejo na próxima partida!"
 
   utter_listar:
     - text: resultado_listar

@@ -100,7 +100,7 @@ class Pegar_carta(Action):
 		gameJson = tracker.get_slot('game')
 
 		if not gameJson:
-			dispatcher.utter_message("Jogo não iniciado...\nBora jogar Blackjack?")
+			dispatcher.utter_message("Opa!...\nEu entendi que você quer \"Mais uma Carta\", mas nosso jogo não foi iniciado...\nBora jogar Blackjack?")
 			return []
 		else:
 			game = jsonpickle.decode(gameJson)
@@ -130,7 +130,7 @@ class Parar(Action):
 		gameJson = tracker.get_slot('game')
 
 		if not gameJson:
-			dispatcher.utter_message("Jogo não iniciado...\nBora jogar Blackjack?")
+			dispatcher.utter_message("Opa!...\nEu entendi que você não quer mais uma Carta, mas nosso jogo não foi iniciado...\nBora jogar Blackjack?")
 			return []
 		else:
 			game = jsonpickle.decode(gameJson)
@@ -160,7 +160,8 @@ class Terminar(Action):
 		gameJson = tracker.get_slot('game')
 
 		if not gameJson:
-			dispatcher.utter_message("Jogo não iniciado...\nBora jogar Blackjack?")
+			dispatcher.utter_message("Jogo não iniciado...")
+			dispatcher.utter_message(text="Uma pena que você não quer mais jogar...\n🥺👋\n Te vejo na próxima partida, Até logo! ")
 			return []
 		else:
 			game = jsonpickle.decode(gameJson)
@@ -192,7 +193,7 @@ class Listar(Action):
 		gameJson = tracker.get_slot('game')
 
 		if not gameJson:
-			dispatcher.utter_message("Jogo não iniciado...\nBora jogar Blackjack?")
+			dispatcher.utter_message("Opa!...\nEu entendi que você quer \"Listar suas partidas\", mas nosso jogo não foi iniciado...\nBora jogar Blackjack?")
 			return []
 		else:
 			game = jsonpickle.decode(gameJson)
@@ -218,7 +219,7 @@ class Estatistica(Action):
 		gameJson = tracker.get_slot('game')
 
 		if not gameJson:
-			dispatcher.utter_message("Jogo não iniciado...\nBora jogar Blackjack?")
+			dispatcher.utter_message("Opa!...\nEu entendi que você quer ver suas estatísticas, mas nosso jogo não foi iniciado...\nBora jogar Blackjack?")
 			return []
 		else:
 			game = jsonpickle.decode(gameJson)
